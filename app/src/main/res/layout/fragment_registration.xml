@@ -121,11 +121,8 @@
         android:id="@+id/buttonSave"
         style="@style/FilledButtonStyle"
         android:layout_marginStart="@dimen/margin_12"
-        android:background="@drawable/button_selector"
-        android:enabled="false"
         android:text="@string/save"
         android:textColor="@color/text_color"
-        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="@id/endBorder"
         app:layout_constraintStart_toEndOf="@id/haveAccount"
         app:layout_constraintTop_toTopOf="@id/haveAccount" />

@@ -1,12 +1,12 @@
 package com.nekhoroshkina.testapplication.registration.ui
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.nekhoroshkina.testapplication.R
@@ -36,21 +36,6 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun initializeListeners() {
-        val textWatcher = object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                updateButtonState()
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        }
-
-        binding.editName.addTextChangedListener(textWatcher)
-        binding.editEmail.addTextChangedListener(textWatcher)
-        binding.editPassword.addTextChangedListener(textWatcher)
-        binding.editConfirmPassword.addTextChangedListener(textWatcher)
-
-
         binding.buttonSave.setOnClickListener {
             val name = binding.editName.text.toString()
             val email = binding.editEmail.text.toString()
@@ -70,6 +55,9 @@ class RegistrationFragment : Fragment() {
                         getString(R.string.registration_success_message),
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    clearInputFields()
+                    clearFocus()
                 }
 
                 is RegistrationScreenState.Error -> {
@@ -80,13 +68,22 @@ class RegistrationFragment : Fragment() {
         }
     }
 
-    fun updateButtonState() {
-        val isFormValid = binding.editName.text.isNotBlank() &&
-                binding.editEmail.text.isNotBlank() &&
-                binding.editPassword.text.isNotBlank() &&
-                binding.editConfirmPassword.text.isNotBlank()
+    private fun clearInputFields() {
+        binding.editName.text.clear()
+        binding.editEmail.text.clear()
+        binding.editPassword.text.clear()
+        binding.editConfirmPassword.text.clear()
+    }
 
-        binding.buttonSave.isEnabled = isFormValid
+    private fun clearFocus() {
+        binding.editName.clearFocus()
+        binding.editEmail.clearFocus()
+        binding.editPassword.clearFocus()
+        binding.editConfirmPassword.clearFocus()
+
+        val inputMethodManager =
+            ContextCompat.getSystemService(requireContext(), InputMethodManager::class.java)
+        inputMethodManager?.hideSoftInputFromWindow(binding.root.windowToken, 0)
     }
 
     override fun onDestroyView() {
