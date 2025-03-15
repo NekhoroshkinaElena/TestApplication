@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TestApplication</string>
+    <string name="registration">Регистрация</string>
+    <string name="name">Имя</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="have_account">Есть аккаунт</string>
+    <string name="save">Сохранить</string>
+    <string name="registration_success_message">Регистрация прошла успешно</string>
+    <!-- Сообщения об ошибках -->
+    <string name="error_name_length">Имя должно содержать от 1 до 35 символов</string>
+    <string name="error_invalid_email">Некорректный формат email</string>
+    <string name="error_email_exists">Пользователь с таким email уже зарегистрирован</string>
+    <string name="error_password_length">Пароль должен содержать от 5 до 64 символов</string>
+    <string name="error_passwords_do_not_match">Пароли не совпадают</string>
+</resources>

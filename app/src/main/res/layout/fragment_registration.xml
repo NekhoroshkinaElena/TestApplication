@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".registration.ui.RegistrationFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startBorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/margin_16" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endBorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/margin_16" />
+
+    <ImageView
+        android:id="@+id/ivEmblem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_emblem"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivArrowBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintBottom_toBottomOf="@id/ivProfile"
+        app:layout_constraintEnd_toStartOf="@+id/ivProfile"
+        app:layout_constraintTop_toTopOf="@id/ivProfile" />
+
+    <ImageView
+        android:id="@+id/ivLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="38dp"
+        android:background="@color/border_color"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toBottomOf="@id/ivEmblem" />
+
+    <TextView
+        android:id="@+id/tvRegistration"
+        style="@style/TitleTextStyle"
+        android:text="@string/registration"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toBottomOf="@id/ivLine" />
+
+    <EditText
+        android:id="@+id/editName"
+        style="@style/EditTextStyle"
+        android:layout_width="0dp"
+        android:hint="@string/name"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toBottomOf="@id/tvRegistration" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        style="@style/EditTextStyle"
+        android:layout_width="0dp"
+        android:hint="@string/email"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toBottomOf="@id/editName" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        style="@style/EditTextStyle"
+        android:layout_width="0dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toBottomOf="@id/editEmail" />
+
+
+    <EditText
+        android:id="@+id/editConfirmPassword"
+        style="@style/EditTextStyle"
+        android:layout_width="0dp"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toBottomOf="@id/editPassword" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/haveAccount"
+        style="@style/OutlinedButtonStyle"
+        android:layout_marginTop="@dimen/margin_32"
+        android:layout_marginEnd="@dimen/margin_12"
+        android:text="@string/have_account"
+        app:layout_constraintEnd_toStartOf="@id/buttonSave"
+        app:layout_constraintStart_toStartOf="@id/startBorder"
+        app:layout_constraintTop_toBottomOf="@id/editConfirmPassword" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSave"
+        style="@style/FilledButtonStyle"
+        android:layout_marginStart="@dimen/margin_12"
+        android:background="@drawable/button_selector"
+        android:enabled="false"
+        android:text="@string/save"
+        android:textColor="@color/text_color"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@id/endBorder"
+        app:layout_constraintStart_toEndOf="@id/haveAccount"
+        app:layout_constraintTop_toTopOf="@id/haveAccount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
